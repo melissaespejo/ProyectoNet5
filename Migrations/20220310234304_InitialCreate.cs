@@ -26,7 +26,8 @@ namespace TodoApi.Migrations
                 {
                     UserId = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    userName = table.Column<string>(type: "text", nullable: true)
+                    userName = table.Column<string>(type: "text", nullable: true),
+                    password = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {

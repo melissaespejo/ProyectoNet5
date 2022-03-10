@@ -8,7 +8,7 @@ using TodoApi.Models;
 namespace TodoApi.Migrations
 {
     [DbContext(typeof(GeneralContext))]
-    [Migration("20220310165024_InitialCreate")]
+    [Migration("20220310234304_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,6 +65,9 @@ namespace TodoApi.Migrations
                     b.Property<long>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
+
+                    b.Property<string>("password")
+                        .HasColumnType("text");
 
                     b.Property<string>("userName")
                         .HasColumnType("text");

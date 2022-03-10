@@ -41,8 +41,10 @@ namespace TodoApi
             services.AddTransient<IPersonaDataService, PersonaDataService>();
             services.AddTransient<IPersonaBusinessService, PersonaBusinessService>();
 
-            //services.AddTransient<ICiudadDataService, CiudadDataService>();
-            //services.AddTransient<ICiudadBusinessService, CiudadBusinessService>();
+            services.AddTransient<ICiudadDataService, CiudadDataService>();
+            services.AddTransient<ICiudadBusinessService, CiudadBusinessService>();
+
+            
 
             services.AddDbContext<GeneralContext>(opt =>
                 opt.UseMySQL("server=localhost;database=usuarios;user=root;password=72021592Mel."));

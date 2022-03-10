@@ -64,6 +64,9 @@ namespace TodoApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    b.Property<string>("password")
+                        .HasColumnType("text");
+
                     b.Property<string>("userName")
                         .HasColumnType("text");
 

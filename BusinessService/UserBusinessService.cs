@@ -34,7 +34,13 @@ namespace TodoApi.BusinessService
             var userDelete = _userDataService.DeletebyIdUser(id);
             return userDelete;
         }
-        
+        public string Login(string user, string password){
+            //verificar que usuario y contraseña verifica con la bd
+            return "holi";
+            //llamar servicio jwtservivr para genersr el token
+
+            //error throw exception("Usuario no encontrado")
+        }
 
         
     }

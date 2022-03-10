@@ -9,6 +9,7 @@ namespace TodoApi.Models
         [Key]
         public long UserId {get; set;}
         public string userName {get; set;}
+        public string password {get; set;}
         public Persona Persona {get; set;}
     }
     

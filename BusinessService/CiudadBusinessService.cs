@@ -7,16 +7,16 @@ namespace TodoApi.BusinessService
 {
     public class CiudadBusinessService : ICiudadBusinessService
     {
-        private ICiudadBusinessService _ciudadBusinessService;
-        public CiudadBusinessService (ICiudadBusinessService ciudadBusinessService){
-            _ciudadBusinessService = ciudadBusinessService;
+        private ICiudadDataService _ciudadDataService;
+        public CiudadBusinessService (ICiudadDataService ciudadDataService){
+            _ciudadDataService = ciudadDataService;
         }
         public List<Ciudad> GetAllCiudad(){
-            var ciudadList =  _ciudadBusinessService.GetAllCiudad();
+            var ciudadList =  _ciudadDataService.GetAllCiudad();
             return ciudadList;
         }
         public Ciudad CreateCiudad(Ciudad ciudad){
-            var ciudadCreate = _ciudadBusinessService.CreateCiudad(ciudad);
+            var ciudadCreate = _ciudadDataService.CreateCiudad(ciudad);
             return ciudadCreate;
         }
     }
