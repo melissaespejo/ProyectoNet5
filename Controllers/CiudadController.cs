@@ -18,13 +18,23 @@ namespace TodoApi.Controllers
             _ciudadBusinessService = ciudadBusinessService;
         }
         [HttpGet("[action]")]
-        public IEnumerable<Ciudad> GetAll()
+        public ActionResult GetAll()
         {
-            return _ciudadBusinessService.GetAllCiudad();
+            try{
+                return Ok(_ciudadBusinessService.GetAllCiudad());
+            }
+            catch(Exception ex){
+                return BadRequest(ex.Message);
+            }
         }
         [HttpPost("[action]")]
-        public Ciudad Create(Ciudad ciudad){
-            return _ciudadBusinessService.CreateCiudad(ciudad);
+        public ActionResult Create([FromBody] Ciudad ciudad){
+            try{
+                return Ok(_ciudadBusinessService.CreateCiudad(ciudad));
+            }
+            catch(Exception ex){
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

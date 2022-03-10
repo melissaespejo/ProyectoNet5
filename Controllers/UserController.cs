@@ -22,25 +22,42 @@ namespace TodoApi.Controllers
         }
 
         [HttpGet("[action]")]
-        public IEnumerable<User> GetAll()
-        {
-            return _userBusinessService.GetAllUsers();
+        public ActionResult GetAll(){
+            try{
+                return Ok(_userBusinessService.GetAllUsers());
+            } 
+            catch(Exception ex){
+                return BadRequest(ex.Message);
+            }
             //return _context.Users.ToList();
         }
 
         [HttpPost("[action]")]
-        public User Create(User user){
-            
-            return _userBusinessService.CreateUser(user);
+        public ActionResult Create([FromBody] User user){  
+            try{
+                return Ok(_userBusinessService.CreateUser(user));
+            }
+            catch(Exception ex){
+                return BadRequest(ex.Message);
+            }
         }
         [HttpPut("[action]")]
-        public User Update(User user){
-            return _userBusinessService.UpdateUser(user);
+        public ActionResult Update(User user){
+            try{
+                return Ok(_userBusinessService.UpdateUser(user));
+            }
+            catch(Exception ex){
+                return BadRequest(ex.Message);
+            }
         }
         [HttpDelete("[action]")]
-        public int DeletebyId(int id){
-            return _userBusinessService.DeletebyIdUser(id);
+        public ActionResult DeletebyId(int id){
+            try{
+                return Ok(_userBusinessService.DeletebyIdUser(id));
+            }
+            catch(Exception ex){
+                return BadRequest(ex.Message);
+            }
         }
-        
     }
 }

@@ -19,13 +19,23 @@ namespace TodoApi.Controllers
         }
 
         [HttpGet("[action]")]
-        public IEnumerable<Persona> GetAll()
+        public ActionResult GetAll()
         {
-            return _personaBusinessService.GetAllPersonas();
+           try{
+               return Ok(_personaBusinessService.GetAllPersonas());
+           }
+           catch(Exception ex){
+               return BadRequest(ex.Message);
+           }
         }
         [HttpPost("[action]")]
-        public Persona Create(Persona persona){
-            return _personaBusinessService.CreatePersona(persona);
+        public ActionResult Create([FromBody] Persona persona){
+            try{
+                return Ok(_personaBusinessService.CreatePersona(persona));
+            }
+            catch(Exception ex){
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
