@@ -15,10 +15,21 @@ namespace TodoApi.Controllers
     {
         //private UserContext _context;
         private IUserBusinessService _userBusinessService;
-        public UserController(IUserBusinessService userBusinessService)
+        private IJWTManagerRepository _JWTManagerRepository;
+        public UserController(IUserBusinessService userBusinessService, IJWTManagerRepository managerRepository)
         {
             //_context=context;
             _userBusinessService = userBusinessService;
+            _JWTManagerRepository = managerRepository;
+        }
+        [HttpPost("[action]")]
+        public ActionResult Login(User user){
+            try{
+                return Ok(_JWTManagerRepository.GetToken(user));
+            }
+            catch(Exception ex){
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("[action]")]

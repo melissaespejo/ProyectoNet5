@@ -46,3 +46,10 @@ D:\INNOVAR\net5\TodoApi\obj\Debug\net5.0\TodoApi.pdb
 D:\INNOVAR\net5\TodoApi\obj\Debug\net5.0\TodoApi.genruntimeconfig.cache
 D:\INNOVAR\net5\TodoApi\bin\Debug\net5.0\Humanizer.dll
 D:\INNOVAR\net5\TodoApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\INNOVAR\net5\TodoApi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\INNOVAR\net5\TodoApi\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\INNOVAR\net5\TodoApi\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+D:\INNOVAR\net5\TodoApi\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+D:\INNOVAR\net5\TodoApi\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\INNOVAR\net5\TodoApi\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+D:\INNOVAR\net5\TodoApi\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
