@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TodoApi.BusinessService.Interfaces;
@@ -9,6 +10,7 @@ using TodoApi.Models;
 
 namespace TodoApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class UserController: ControllerBase
@@ -22,6 +24,7 @@ namespace TodoApi.Controllers
             _userBusinessService = userBusinessService;
             _JWTManagerRepository = managerRepository;
         }
+        [AllowAnonymous]
         [HttpPost("[action]")]
         public ActionResult Login(User user){
             try{
@@ -30,6 +33,17 @@ namespace TodoApi.Controllers
             catch(Exception ex){
                 return BadRequest(ex.Message);
             }
+        }
+        [AllowAnonymous]
+        [HttpGet("[action]")]
+        public ActionResult GetAllWithAuthorize(){
+            try{
+                return Ok(_userBusinessService.GetAllUsers());
+            } 
+            catch(Exception ex){
+                return BadRequest(ex.Message);
+            }
+            //return _context.Users.ToList();
         }
 
         [HttpGet("[action]")]
