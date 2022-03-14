@@ -1,26 +1,33 @@
 using System.Collections.Generic;
 using TodoApi.BusinessService.Interfaces;
 using TodoApi.DataService.Interfaces;
+//
 using TodoApi.Models;
+
+using TodoApi.ViewModels;
+using AutoMapper;
 
 namespace TodoApi.BusinessService
 {
     public class UserBusinessService : IUserBusinessService
     {
         private IUserDataService _userDataService;
-        public UserBusinessService(IUserDataService userDataService){
+        private IMapper _mapper;
+        public UserBusinessService(IUserDataService userDataService, IMapper mapper){
             _userDataService = userDataService;
+            _mapper = mapper;
         }
-        public List<User> GetAllUsers()
+        public List<UserViewModel> GetAllUsers()
         {
             var userList = _userDataService.GetAllUsers();
+            var UserViewModelList = _mapper.Map<List<UserViewModel>>(userList);
             //logica
             //eliminar la contraseña
             //ordenar
-            return userList;
-        }
+            return UserViewModelList;
+        } 
         //create
-        public User CreateUser(User user){
+        /*public User CreateUser(User user){
             var userCreate = _userDataService.CreateUser(user);
             return userCreate;
         }
@@ -41,7 +48,7 @@ namespace TodoApi.BusinessService
 
             //error throw exception("Usuario no encontrado")
         }
-
+        */
         
     }
 }

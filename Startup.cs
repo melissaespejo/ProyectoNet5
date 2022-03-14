@@ -21,6 +21,7 @@ using TodoApi.BusinessService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using AutoMapper;
 
 namespace TodoApi
 {
@@ -105,6 +106,14 @@ namespace TodoApi
                 });
                 
             });
+            //Mapping
+            var mapperConfig = new MapperConfiguration(
+                mc =>{
+                    mc.AddProfile(new MappingProfile());
+                }
+            );
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

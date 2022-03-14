@@ -1,17 +1,18 @@
 using System.Collections.Generic;
 using TodoApi.Models;
+using TodoApi.ViewModels;
 
 namespace TodoApi.BusinessService.Interfaces
 {
     public interface IUserBusinessService
     {
-        List<User> GetAllUsers();
+        List<UserViewModel> GetAllUsers();
          //create
-        User CreateUser(User user);
+        /*UserVie CreateUser(User user);
         //update
-        User UpdateUser(User user);
+        UserViewModel UpdateUser(User user);
         //delete
         int DeletebyIdUser(int id);  
-        
+        */
     }
 }

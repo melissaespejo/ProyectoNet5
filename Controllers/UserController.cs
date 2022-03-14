@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TodoApi.BusinessService.Interfaces;
 using TodoApi.Models;
+using TodoApi.ViewModels;
 
 namespace TodoApi.Controllers
 {
@@ -36,28 +37,28 @@ namespace TodoApi.Controllers
         }
         [AllowAnonymous]
         [HttpGet("[action]")]
-        public ActionResult GetAllWithAuthorize(){
+        public IEnumerable<UserViewModel> GetAllWithAuthorize(){
             try{
-                return Ok(_userBusinessService.GetAllUsers());
+                return _userBusinessService.GetAllUsers();
             } 
             catch(Exception ex){
-                return BadRequest(ex.Message);
+                return (IEnumerable<UserViewModel>)BadRequest(ex.Message);
             }
             //return _context.Users.ToList();
         }
-
+        [AllowAnonymous]
         [HttpGet("[action]")]
-        public ActionResult GetAll(){
+        public IEnumerable<UserViewModel> GetAll(){
             try{
-                return Ok(_userBusinessService.GetAllUsers());
+                return (IEnumerable<UserViewModel>)Ok(_userBusinessService.GetAllUsers());
             } 
             catch(Exception ex){
-                return BadRequest(ex.Message);
+                return (IEnumerable<UserViewModel>)BadRequest(ex.Message);
             }
             //return _context.Users.ToList();
         }
 
-        [HttpPost("[action]")]
+        /*[HttpPost("[action]")]
         public ActionResult Create([FromBody] User user){  
             try{
                 return Ok(_userBusinessService.CreateUser(user));
@@ -83,6 +84,6 @@ namespace TodoApi.Controllers
             catch(Exception ex){
                 return BadRequest(ex.Message);
             }
-        }
+        }*/
     }
 }
